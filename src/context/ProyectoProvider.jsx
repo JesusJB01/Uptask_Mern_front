@@ -217,8 +217,13 @@ const ProyectosProvider = ({ children }) => {
   };
 
   const handleModalTarea = () => {
-    setModalFormularioTarea(!modalFormularioTarea);
+   
+      setModalFormularioTarea(!modalFormularioTarea);
+
+   
     setTarea({});
+    
+    
   };
 
   const submitTarea = async (tarea) => {
@@ -506,12 +511,14 @@ const ProyectosProvider = ({ children }) => {
   };
   
   const eliminarTareaProyecto = (tarea) => {
-    const proyectoActualizado = { ...proyecto };
+  
+
+   const proyectoActualizado = { ...proyecto};
     proyectoActualizado.tareas = proyectoActualizado.tareas.filter(
-      (tareaState) => tareaState._id !== tarea._id
-    );
+      tareaState => tareaState._id !== tarea._id
+    ); 
     /* console.log(proyectoActualizado); */
-    setProyecto(proyectoActualizado);
+    setProyecto(proyectoActualizado);   
   };
 
   const cambiarEstadoTarea = (tarea) => {

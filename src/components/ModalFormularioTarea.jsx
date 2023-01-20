@@ -2,11 +2,13 @@ import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import useProyectos from "../hooks/useProyectos";
 import Alerta from "./Alertas";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PRIORIDAD = ["Baja", "Media", "Alta"];
 
 const ModalFormularioTarea = () => {
+
+  const navigate = useNavigate()
   const [id, setId] = useState("");
   const [nombre, setNombre] = useState("");
   const [prioridad, setPrioridad] = useState("");
@@ -16,6 +18,7 @@ const ModalFormularioTarea = () => {
   const params = useParams();
   
   const { modalFormularioTarea, handleModalTarea, mostrarAlerta, alerta, submitTarea, tarea } = useProyectos();
+ 
 
   useEffect(() => {
       if(tarea?._id) {
@@ -33,6 +36,9 @@ const ModalFormularioTarea = () => {
       setPrioridad('')
       
   }, [tarea]);
+
+
+ 
   
 
   const handleSubmit = async e => {
@@ -54,7 +60,14 @@ const ModalFormularioTarea = () => {
       setFechaEntrega('')
       setPrioridad('')
 
+      setTimeout(() => {
+        window.location.reload(true)
+
+      }, 1000)
+ 
   }
+
+  
 
   const { msg } = alerta;
 

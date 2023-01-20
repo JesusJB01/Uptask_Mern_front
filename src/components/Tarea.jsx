@@ -9,6 +9,8 @@ const Tarea = ({ tarea }) => {
 
   const { descripcion, nombre, prioridad, fechaEntrega, _id, estado } = tarea;
 
+  
+
   return (
     <div className="border-b p-5 flex justify-between items-center">
       <div className="flex flex-col items-start">

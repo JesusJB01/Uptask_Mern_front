@@ -14,6 +14,8 @@ let socket;
 const Proyecto = () => {
   const params = useParams();
 
+  
+
   const {
     obtenerProyecto,
     proyecto,
@@ -63,6 +65,8 @@ const Proyecto = () => {
   });
 
   const { nombre } = proyecto;
+
+ 
 
   if (cargando) return "Cargando";
 
@@ -128,6 +132,7 @@ const Proyecto = () => {
       <div className="bg-white shadow mt-10 rounded-lg">
         {proyecto.tareas?.length ? (
           proyecto.tareas?.map((tarea) => (
+            
             <Tarea key={tarea._id} tarea={tarea} />
           ))
         ) : (
